@@ -10,4 +10,3 @@ pytz==2020.1
 requests==2.22.0
 urllib3==1.25.10
 whitenoise==5.2.0
-distribute==0.6.24
