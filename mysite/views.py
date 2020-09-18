@@ -10,20 +10,20 @@ def index(request):
     if request.method == 'POST':
         firstname = request.POST.get('fname')
         lastname = request.POST.get('lname')
-
-        r = requests.get('http://api.icndb.com/jokes/random?firstName=' + firstname + '&lastName=' + lastname)
+	r = requests.get('https://api.chucknorris.io/jokes/random?name=' + firstname + ' ' + lastname + '&category=dev')
+        #r = requests.get('http://api.icndb.com/jokes/random?firstName=' + firstname + '&lastName=' + lastname)
         json_data = json.loads(r.text)
-        joke = json_data.get('value').get('joke')
+        joke = json_data.get('value')#.get('joke')
 
         context = {'joker': joke}
         return render(request, 'mysite/index.html', context)
     else:
         firstname = 'Shivam'
         lastname = 'Raj'
-
-        r = requests.get('http://api.icndb.com/jokes/random?firstName=' + firstname + '&lastName=' + lastname)
+	r = requests.get('https://api.chucknorris.io/jokes/random?name=' + firstname + ' ' + lastname + '&category=dev')
+        #r = requests.get('http://api.icndb.com/jokes/random?firstName=' + firstname + '&lastName=' + lastname)
         json_data = json.loads(r.text)
-        joke = json_data.get('value').get('joke')
+        joke = json_data.get('value')#.get('joke')
 
         context = {'joker': joke}
         return render(request, 'mysite/index.html', context)
