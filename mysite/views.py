@@ -30,7 +30,10 @@ def index(request):
 
 
 def portfolio(request):
-    return render(request, 'mysite/portfolio.html')
+    r1=requests.get("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=text&text=?")
+    q=r1.text
+    context={'quote':q}
+    return render(request, 'mysite/portfolio.html',context)
 
 
 def contact(request):
